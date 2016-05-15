@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-curl "http://www.umcgc.com/api/petitions/$1"
+curl -H "Content-Type:text/plain" "http://api.umcgc.com/petitions/$1"
 printf "\n"

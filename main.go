@@ -22,7 +22,11 @@ func main() {
 }
 
 func getPetitionText(petitionNumber string) {
-	response, err := http.Get(fmt.Sprintf("http://umcgc.herokuapp.com/api/petitions/%s", petitionNumber))
+	client := &http.Client{}
+	requestUrl := fmt.Sprintf("http://api.umcgc.com/petitions/%s", petitionNumber)
+	request, _ := http.NewRequest("GET", requestUrl, nil)
+	request.Header.Set("Content-Type", "text/plain")
+	response, _ := client.Do(request)
 	contents, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		fmt.Printf("%s", err)
