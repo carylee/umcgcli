@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+curl "http://www.umcgc.com/api/petitions/$1"
+printf "\n"
