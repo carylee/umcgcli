@@ -25,7 +25,7 @@ func getPetitionText(petitionNumber string) {
 	client := &http.Client{}
 	requestUrl := fmt.Sprintf("http://api.umcgc.com/petitions/%s", petitionNumber)
 	request, _ := http.NewRequest("GET", requestUrl, nil)
-	request.Header.Set("Content-Type", "text/plain")
+	request.Header.Set("Accept", "text/plain")
 	response, _ := client.Do(request)
 	contents, err := ioutil.ReadAll(response.Body)
 	if err != nil {
